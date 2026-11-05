@@ -2,555 +2,483 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="قَطِيع منصة عربية لإدارة وتحليل دورات تسمين الدواجن البيضاء.">
-  <title>قَطِيع | إدارة أذكى وإنتاج أفضل</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#153f35">
+<meta name="description" content="قطيع - منصة إدارة وتحليل دورات تسمين الدواجن البيضاء">
+<title>قَطِيع | منصة إدارة الدواجن البيضاء</title>
 
-  <style>
-    :root {
-      --green: #153F35;
-      --light-green: #D7E9A7;
-      --gold: #E6A85B;
-      --background: #F4F6F1;
-      --white: #FFFFFF;
-      --text: #26352F;
-      --muted: #718078;
-      --border: #E2E9E1;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Tahoma, Arial, sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.8;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
-
-    header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .navbar {
-      min-height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .logo {
-      color: var(--green);
-      font-size: 27px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: #9B6B2F;
-    }
-
-    .hero {
-      padding: 75px 0;
-      background: var(--green);
-      color: var(--white);
-      overflow: hidden;
-    }
-
-    .hero-content {
-      max-width: 720px;
-    }
-
-    .hero-label {
-      display: inline-block;
-      color: var(--light-green);
-      border: 1px solid #557568;
-      border-radius: 30px;
-      padding: 5px 15px;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(30px, 6vw, 48px);
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: var(--light-green);
-    }
-
-    .hero p {
-      color: #DCE8E1;
-      font-size: 17px;
-      margin-bottom: 28px;
-      max-width: 600px;
-    }
-
-    .main-button {
-      display: inline-block;
-      background: var(--gold);
-      color: #26352F;
-      padding: 12px 25px;
-      border-radius: 9px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .main-button:hover {
-      background: #F0BC7D;
-      transform: translateY(-2px);
-    }
-
-    section {
-      padding: 65px 0;
-    }
-
-    .section-heading {
-      margin-bottom: 30px;
-    }
-
-    .section-heading h2 {
-      color: var(--green);
-      font-size: 27px;
-      margin-bottom: 8px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 23px;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--gold);
-    }
-
-    .card-icon {
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      color: var(--green);
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .soon {
-      display: inline-block;
-      margin-top: 15px;
-      background: #F4F0E7;
-      color: #91662E;
-      padding: 3px 11px;
-      border-radius: 20px;
-      font-size: 12px;
-    }
-
-    .calculator-section {
-      background: #EAF0E8;
-    }
-
-    .calculator {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 25px;
-      max-width: 650px;
-    }
-
-    .calculator h3 {
-      color: var(--green);
-      margin-bottom: 15px;
-    }
-
-    .field {
-      margin-bottom: 15px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 6px;
-      font-weight: bold;
-    }
-
-    .field input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #D5DED6;
-      border-radius: 8px;
-      font-size: 16px;
-      font-family: inherit;
-      outline: none;
-    }
-
-    .field input:focus {
-      border-color: var(--green);
-    }
-
-    .calculate-button {
-      border: 0;
-      background: var(--green);
-      color: var(--white);
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .calculate-button:hover {
-      background: #245B4B;
-    }
-
-    .result {
-      display: none;
-      margin-top: 18px;
-      padding: 15px;
-      border-radius: 9px;
-      background: #EDF4E6;
-      color: var(--green);
-      font-weight: bold;
-    }
-
-    .result.error {
-      background: #FCECEC;
-      color: #A52C2C;
-    }
-
-    .info-note {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .about-box {
-      background: var(--green);
-      color: var(--white);
-      padding: 35px;
-      border-radius: 16px;
-    }
-
-    .about-box h2 {
-      color: var(--light-green);
-      margin-bottom: 12px;
-    }
-
-    .about-box p {
-      color: #DCE8E1;
-    }
-
-    footer {
-      background: #102F28;
-      color: #DCE8E1;
-      padding: 28px 0;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    footer strong {
-      color: var(--light-green);
-    }
-
-    @media (max-width: 650px) {
-      .navbar {
-        flex-direction: column;
-        padding: 12px 0;
-      }
-
-      nav {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        font-size: 12px;
-      }
-
-      .hero {
-        padding: 55px 0;
-      }
-
-      section {
-        padding: 48px 0;
-      }
-
-      .about-box {
-        padding: 24px;
-      }
-    }
-  </style>
+<style>
+:root{
+--g:#153f35;--g2:#24634e;--gold:#e6ad62;
+--bg:#f3f6f1;--white:#fff;--text:#27382f;
+--muted:#78877e;--border:#e0e8df;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+header{background:var(--g);color:white;padding:14px 4%;border-bottom:4px solid var(--gold);position:sticky;top:0;z-index:20}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:27px;font-weight:bold;color:var(--gold)}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
+nav a:hover{color:var(--gold)}
+.container{width:min(1150px,94%);margin:auto}
+.hero{background:linear-gradient(120deg,#12372e,#28694e);color:white;padding:48px 0}
+.hero h1{font-size:clamp(25px,5vw,40px);margin:0;color:var(--gold)}
+.hero p{max-width:700px;color:#e0eee6}
+.hero .tag{color:#d7e9a7;font-size:13px}
+.section{padding:35px 0}
+.heading{color:var(--g);margin-bottom:18px}
+.heading h2{margin:0;font-size:25px}
+.heading p{color:var(--muted);font-size:13px;margin:3px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.card{background:white;border:1px solid var(--border);border-radius:13px;padding:19px;box-shadow:0 3px 12px #173e2b08}
+.card h3{color:var(--g);margin:0 0 8px;font-size:17px}
+.metric{font-size:26px;color:var(--g);font-weight:bold}
+.small{font-size:12px;color:var(--muted)}
+.panel{background:white;padding:22px;border-radius:14px;border:1px solid var(--border);margin-bottom:18px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:13px}
+.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:5px}
+.field input,.field select{width:100%;padding:11px;border:1px solid #ccd8ce;border-radius:8px;background:white;font-size:15px;min-width:0}
+.field input:focus,.field select:focus{outline:2px solid #b5d0bd;border-color:var(--g2)}
+.btn{border:0;border-radius:8px;background:var(--g);color:white;padding:11px 19px;font-size:14px;font-weight:bold}
+.btn:hover{background:var(--g2)}
+.btn.gold{background:var(--gold);color:#26372e}
+.btn.red{background:#a33b35}
+.btn.secondary{background:#e9f0e9;color:var(--g)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+.result{display:none;background:#edf5e9;border-right:4px solid var(--g2);padding:14px;border-radius:8px;margin-top:15px}
+.result.error{background:#fff0ee;border-color:#b63d35;color:#a22c26}
+.result strong{color:var(--g)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}
+.tab{background:#e5ece5;color:var(--g);border:0;border-radius:8px;padding:10px 14px}
+.tab.active{background:var(--g);color:white}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:600px;background:white}
+th,td{padding:11px;text-align:center;border-bottom:1px solid var(--border);font-size:13px}
+th{background:#e9f0e9;color:var(--g)}
+.bar-row{margin:13px 0}
+.bar-label{display:flex;justify-content:space-between;font-size:13px}
+.bar{height:12px;border-radius:20px;background:#e5ebe5;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--g2);border-radius:20px}
+.notice{background:#fff7e8;border-right:4px solid var(--gold);padding:13px;border-radius:8px;font-size:13px;margin:12px 0}
+.hidden{display:none!important}
+footer{background:#102e27;color:white;text-align:center;padding:25px;margin-top:30px}
+footer strong{color:var(--gold)}
+@media(max-width:650px){
+header{position:relative}
+.nav{justify-content:center}
+nav{justify-content:center;gap:11px}
+.hero{padding:35px 0}
+.panel{padding:15px}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="container navbar">
-      <a href="#" class="logo">قَطِيع<span>.</span></a>
+<header>
+<div class="nav">
+<div class="logo">قَطِيع.</div>
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#dashboard">المؤشرات</a>
+<a href="#houses">العنابر</a>
+<a href="#calculators">الحاسبات</a>
+<a href="#reports">التقارير</a>
+<a href="#library">المكتبة</a>
+</nav>
+</div>
+</header>
 
-      <nav>
-        <a href="#home">الرئيسية</a>
-        <a href="#calculators">الحاسبات</a>
-        <a href="#farm">إدارة المزارع</a>
-        <a href="#library">المكتبة العلمية</a>
-      </nav>
-    </div>
-  </header>
+<main>
+<section class="hero" id="home">
+<div class="container">
+<div class="tag">منصة متخصصة في الدواجن البيضاء</div>
+<h1>إدارة أذكى... وإنتاج أفضل</h1>
+<p>منصة قطيع لمتابعة دورات التسمين وتحليل الأوزان والعلف والنفوق والتكاليف، ومقارنة أداء ثمانية عنابر في مكان واحد.</p>
+<a href="#dashboard" class="btn gold">ابدأ متابعة الدورة</a>
+</div>
+</section>
 
-  <main>
+<section class="section" id="dashboard">
+<div class="container">
+<div class="heading"><h2>لوحة مؤشرات الأداء</h2><p>ملخص البيانات المسجلة في العنابر الثمانية.</p></div>
+<div class="grid">
+<div class="card"><h3>إجمالي الكتاكيت</h3><div class="metric" id="mInitial">0</div><div class="small">طائر</div></div>
+<div class="card"><h3>إجمالي النافق</h3><div class="metric" id="mDead">0</div><div class="small">طائر</div></div>
+<div class="card"><h3>نسبة النافق</h3><div class="metric" id="mMort">0%</div><div class="small">من العدد الابتدائي</div></div>
+<div class="card"><h3>العلف المستهلك</h3><div class="metric" id="mFeed">0</div><div class="small">كيلوجرام</div></div>
+<div class="card"><h3>متوسط الوزن</h3><div class="metric" id="mWeight">0</div><div class="small">جرام</div></div>
+<div class="card"><h3>إجمالي التكاليف</h3><div class="metric" id="mCost">0</div><div class="small">جنيه</div></div>
+</div>
+</div>
+</section>
 
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <span class="hero-label">منصة متخصصة في الدواجن البيضاء</span>
+<section class="section" id="houses">
+<div class="container">
+<div class="heading"><h2>إدارة المزارع والعنابر</h2><p>اختر العنبر وسجل بيانات دورته.</p></div>
+<div class="panel">
+<div class="field">
+<label for="houseSelect">اختر العنبر</label>
+<select id="houseSelect" onchange="loadHouse()"></select>
+</div>
+<div class="notice">أدخل بيانات كل عنبر على حدة. الأرقام لا تنتقل تلقائيًا من عنبر إلى آخر.</div>
+<h3>بيانات القطيع والإنتاج</h3>
+<div class="fields">
+<div class="field"><label>العدد الابتدائي للكتاكيت</label><input id="initial" type="number" min="0" placeholder="مثال: 10000"></div>
+<div class="field"><label>إجمالي عدد النافق</label><input id="dead" type="number" min="0" placeholder="مثال: 150"></div>
+<div class="field"><label>متوسط وزن الطائر بالجرام</label><input id="weight" type="number" min="0" step="0.1" placeholder="مثال: 2200"></div>
+<div class="field"><label>عدد الطيور المباعة (اختياري)</label><input id="sold" type="number" min="0" placeholder="عدد الطيور"></div>
+<div class="field"><label>إجمالي وزن البيع بالكيلوجرام</label><input id="saleWeight" type="number" min="0" step="0.1" placeholder="وزن البيع"></div>
+</div>
+<h3>بيانات العلف بالكيلوجرام</h3>
+<div class="fields">
+<div class="field"><label>رصيد العلف أول المدة</label><input id="opening" type="number" min="0" step="0.1"></div>
+<div class="field"><label>العلف الوارد</label><input id="received" type="number" min="0" step="0.1"></div>
+<div class="field"><label>العلف المرتجع خارج المزرعة</label><input id="returned" type="number" min="0" step="0.1"></div>
+<div class="field"><label>رصيد العلف آخر المدة</label><input id="closing" type="number" min="0" step="0.1"></div>
+<div class="field"><label>الزيادة الوزنية الإجمالية بالكيلوجرام</label><input id="gain" type="number" min="0" step="0.1"></div>
+</div>
+<h3>التكاليف والإيرادات بالجنيه</h3>
+<div class="fields">
+<div class="field"><label>تكلفة الكتاكيت</label><input id="chickCost" type="number" min="0"></div>
+<div class="field"><label>تكلفة العلف</label><input id="feedCost" type="number" min="0"></div>
+<div class="field"><label>الأدوية والتحصينات</label><input id="medicineCost" type="number" min="0"></div>
+<div class="field"><label>التدفئة والكهرباء</label><input id="energyCost" type="number" min="0"></div>
+<div class="field"><label>العمالة والتشغيل</label><input id="laborCost" type="number" min="0"></div>
+<div class="field"><label>تكاليف أخرى</label><input id="otherCost" type="number" min="0"></div>
+<div class="field"><label>إجمالي إيرادات البيع</label><input id="revenue" type="number" min="0"></div>
+</div>
+<div class="actions">
+<button class="btn" onclick="saveHouse()">حفظ بيانات العنبر</button>
+<button class="btn secondary" onclick="clearHouse()">مسح حقول العنبر</button>
+</div>
+<div class="result" id="houseResult"></div>
+</div>
 
-          <h1>
-            كل ما تحتاجه لإدارة
-            <span>دورة التسمين</span>
-            في مكان واحد
-          </h1>
+<div class="grid" id="houseCards"></div>
+</div>
+</section>
 
-          <p>
-            قَطِيع تساعدك على متابعة أداء الدورات،
-            وتحليل استهلاك العلف والأوزان والنافق،
-            واتخاذ قرارات مبنية على الأرقام.
-          </p>
+<section class="section" id="calculators">
+<div class="container">
+<div class="heading"><h2>الحاسبات الفنية</h2><p>اختر الحاسبة وأدخل بياناتك للحصول على النتيجة.</p></div>
+<div class="tabs">
+<button class="tab active" onclick="showCalc('mort',this)">نسبة النافق</button>
+<button class="tab" onclick="showCalc('avg',this)">متوسط الأوزان</button>
+<button class="tab" onclick="showCalc('fcr',this)">معامل التحويل</button>
+<button class="tab" onclick="showCalc('feedcalc',this)">استهلاك العلف</button>
+<button class="tab" onclick="showCalc('need',this)">احتياجات العلف</button>
+<button class="tab" onclick="showCalc('costcalc',this)">تكلفة الدورة</button>
+</div>
 
-          <a href="#calculators" class="main-button">
-            استكشف الحاسبات
-          </a>
-        </div>
-      </div>
-    </section>
+<div class="panel calc" id="calc-mort">
+<h3>حاسبة نسبة النافق</h3>
+<div class="fields">
+<div class="field"><label>العدد الابتدائي</label><input id="cInitial" type="number" min="1"></div>
+<div class="field"><label>إجمالي النافق</label><input id="cDead" type="number" min="0"></div>
+</div>
+<button class="btn" onclick="calcMort()">احسب النسبة</button>
+<div class="result" id="rMort"></div>
+</div>
 
-    <section id="calculators">
-      <div class="container">
-        <div class="section-heading">
-          <h2>حاسبات دورة التسمين</h2>
-          <p>أدوات حسابية لمتابعة أهم مؤشرات دورة الدواجن البيضاء.</p>
-        </div>
+<div class="panel calc hidden" id="calc-avg">
+<h3>حاسبة متوسط الأوزان</h3>
+<div class="fields">
+<div class="field"><label>إجمالي أوزان العينة بالجرام</label><input id="sumWeight" type="number" min="0" step="0.1"></div>
+<div class="field"><label>عدد الطيور في العينة</label><input id="sampleCount" type="number" min="1"></div>
+<div class="field"><label>الوزن المستهدف بالجرام (اختياري)</label><input id="targetWeight" type="number" min="0" step="0.1"></div>
+</div>
+<button class="btn" onclick="calcAvg()">احسب المتوسط</button>
+<div class="result" id="rAvg"></div>
+</div>
 
-        <div class="cards">
+<div class="panel calc hidden" id="calc-fcr">
+<h3>حاسبة معامل التحويل الغذائي</h3>
+<div class="fields">
+<div class="field"><label>إجمالي العلف المستهلك بالكيلوجرام</label><input id="fcrFeed" type="number" min="0" step="0.1"></div>
+<div class="field"><label>إجمالي الزيادة الوزنية بالكيلوجرام</label><input id="fcrGain" type="number" min="0" step="0.1"></div>
+</div>
+<button class="btn" onclick="calcFcr()">احسب معامل التحويل</button>
+<div class="result" id="rFcr"></div>
+<p class="small">المعادلة: العلف المستهلك ÷ الزيادة الوزنية. استخدم نفس أساس حساب الوزن في جميع البيانات.</p>
+</div>
 
-          <div class="card">
-            <div class="card-icon">⚖️</div>
-            <h3>متوسط الأوزان</h3>
-            <p>حساب متوسط وزن العينة ومتابعة تطور أوزان الطيور.</p>
-            <span class="soon">قريبًا</span>
-          </div>
+<div class="panel calc hidden" id="calc-feedcalc">
+<h3>حاسبة استهلاك العلف والمخزون</h3>
+<div class="fields">
+<div class="field"><label>رصيد أول المدة بالكيلوجرام</label><input id="fcOpening" type="number" min="0"></div>
+<div class="field"><label>العلف الوارد بالكيلوجرام</label><input id="fcReceived" type="number" min="0"></div>
+<div class="field"><label>العلف المرتجع بالكيلوجرام</label><input id="fcReturned" type="number" min="0"></div>
+<div class="field"><label>رصيد آخر المدة بالكيلوجرام</label><input id="fcClosing" type="number" min="0"></div>
+</div>
+<button class="btn" onclick="calcFeed()">احسب الاستهلاك</button>
+<div class="result" id="rFeed"></div>
+<p class="small">الاستهلاك = رصيد أول المدة + الوارد - المرتجع - رصيد آخر المدة.</p>
+</div>
 
-          <div class="card">
-            <div class="card-icon">🌾</div>
-            <h3>استهلاك العلف</h3>
-            <p>حساب العلف الوارد والمستهلك والمرتجع.</p>
-            <span class="soon">قريبًا</span>
-          </div>
+<div class="panel calc hidden" id="calc-need">
+<h3>حاسبة احتياجات العلف</h3>
+<div class="fields">
+<div class="field"><label>عدد الطيور الحية المتوقع</label><input id="needBirds" type="number" min="1"></div>
+<div class="field"><label>استهلاك الطائر المتوقع طوال الدورة بالكيلوجرام</label><input id="needPerBird" type="number" min="0" step="0.01" placeholder="أدخل الاستهلاك المتوقع"></div>
+<div class="field"><label>نسبة احتياطي العلف %</label><input id="needReserve" type="number" min="0" max="100" value="5"></div>
+</div>
+<button class="btn" onclick="calcNeed()">احسب الاحتياجات</button>
+<div class="result" id="rNeed"></div>
+<p class="small">هذه حاسبة تقديرية تعتمد على الاستهلاك الذي تدخله، وليست توصية تغذية ثابتة.</p>
+</div>
 
-          <div class="card">
-            <div class="card-icon">📊</div>
-            <h3>معامل التحويل</h3>
-            <p>متابعة معامل التحويل الغذائي للدورة.</p>
-            <span class="soon">قريبًا</span>
-          </div>
+<div class="panel calc hidden" id="calc-costcalc">
+<h3>حاسبة تكلفة الدورة</h3>
+<div class="fields">
+<div class="field"><label>تكلفة الكتاكيت</label><input id="ccChick" type="number" min="0"></div>
+<div class="field"><label>تكلفة العلف</label><input id="ccFeed" type="number" min="0"></div>
+<div class="field"><label>الأدوية والتحصينات</label><input id="ccMed" type="number" min="0"></div>
+<div class="field"><label>الكهرباء والتدفئة</label><input id="ccEnergy" type="number" min="0"></div>
+<div class="field"><label>العمالة</label><input id="ccLabor" type="number" min="0"></div>
+<div class="field"><label>مصروفات أخرى</label><input id="ccOther" type="number" min="0"></div>
+<div class="field"><label>إجمالي الإيرادات</label><input id="ccRevenue" type="number" min="0"></div>
+</div>
+<button class="btn" onclick="calcCost()">احسب نتيجة الدورة</button>
+<div class="result" id="rCost"></div>
+</div>
+</div>
+</section>
 
-          <div class="card">
-            <div class="card-icon">🐔</div>
-            <h3>نسبة النافق</h3>
-            <p>احسب نسبة النافق من العدد الابتدائي للطيور.</p>
-            <a href="#mortality" class="soon">افتح الحاسبة</a>
-          </div>
+<section class="section" id="reports">
+<div class="container">
+<div class="heading"><h2>تقارير ومقارنة العنابر</h2><p>مقارنة البيانات المسجلة لكل عنبر.</p></div>
+<div class="panel table-wrap">
+<table>
+<thead><tr><th>العنبر</th><th>العدد الابتدائي</th><th>النافق</th><th>نسبة النافق</th><th>متوسط الوزن</th><th>العلف المستهلك</th><th>التحويل</th><th>التكاليف</th></tr></thead>
+<tbody id="reportBody"></tbody>
+</table>
+</div>
+<div class="panel">
+<h3>مقارنة استهلاك العلف بين العنابر</h3>
+<div id="feedBars"></div>
+</div>
+<div class="actions">
+<button class="btn" onclick="exportCSV()">تصدير تقرير Excel (CSV)</button>
+<button class="btn secondary" onclick="window.print()">طباعة التقرير</button>
+</div>
+</div>
+</section>
 
-          <div class="card">
-            <div class="card-icon">💰</div>
-            <h3>تكلفة الدورة</h3>
-            <p>متابعة التكاليف والإيرادات وحساب نتائج الدورة.</p>
-            <span class="soon">قريبًا</span>
-          </div>
+<section class="section" id="library">
+<div class="container">
+<div class="heading"><h2>المكتبة العلمية</h2><p>مبادئ إرشادية لإدارة دورة التسمين.</p></div>
+<div class="grid">
+<div class="card"><h3>التغذية</h3><p>تابع نوع العلف ومرحلته وكميات الوارد والمستهلك والمرتجع، وراجع جودة التخزين.</p></div>
+<div class="card"><h3>الأوزان</h3><p>استخدم عينات موزعة على أماكن العنبر، وسجل عدد الطيور ووزنها وتاريخ القياس.</p></div>
+<div class="card"><h3>الأمن الحيوي</h3><p>اهتم بتنظيم الدخول والتطهير ومكافحة القوارض ومراجعة إجراءات النظافة.</p></div>
+<div class="card"><h3>التهوية والبيئة</h3><p>تابع الحرارة والرطوبة وجودة الهواء وسلوك الطيور، واضبط التهوية وفق العمر والظروف.</p></div>
+<div class="card"><h3>التحصين والصحة</h3><p>اعتمد برنامجًا يحدده الطبيب البيطري وفق الوضع الوبائي وتاريخ المزرعة.</p></div>
+<div class="card"><h3>تحليل النتائج</h3><p>قارن الأداء بين العنابر مع مراعاة العمر والوزن والظروف التشغيلية.</p></div>
+</div>
+<div class="notice">المعلومات هنا إرشادية عامة، ولا تحل محل الطبيب البيطري أو البرنامج الفني المعتمد للمزرعة.</div>
+</div>
+</section>
+</main>
 
-          <div class="card">
-            <div class="card-icon">🏭</div>
-            <h3>احتياجات العلف</h3>
-            <p>تقدير احتياجات البادي والنامي والناهي.</p>
-            <span class="soon">قريبًا</span>
-          </div>
+<footer>
+<strong>قَطِيع | QATEE</strong>
+<p>منصة صناع الابتكار للدواجن البيضاء</p>
+<p>إدارة أذكى... وإنتاج أفضل</p>
+<p>© 2026 جميع الحقوق محفوظة</p>
+</footer>
 
-        </div>
-      </div>
-    </section>
+<script>
+const fields=[
+"initial","dead","weight","sold","saleWeight",
+"opening","received","returned","closing","gain",
+"chickCost","feedCost","medicineCost","energyCost",
+"laborCost","otherCost","revenue"
+];
+const names=["العنبر الأول","العنبر الثاني","العنبر الثالث","العنبر الرابع","العنبر الخامس","العنبر السادس","العنبر السابع","العنبر الثامن"];
+let houses=Array.from({length:8},()=>({}));
+let active=0;
 
-    <section class="calculator-section" id="mortality">
-      <div class="container">
-        <div class="section-heading">
-          <h2>حاسبة نسبة النافق</h2>
-          <p>احسب نسبة النافق بسهولة خلال ثوانٍ.</p>
-        </div>
-
-        <div class="calculator">
-          <h3>بيانات الدورة</h3>
-
-          <div class="field">
-            <label for="initial">العدد الابتدائي للكتاكيت</label>
-            <input type="number" id="initial" min="1" placeholder="مثال: 10000">
-          </div>
-
-          <div class="field">
-            <label for="dead">إجمالي عدد النافق</label>
-            <input type="number" id="dead" min="0" placeholder="مثال: 250">
-          </div>
-
-          <button class="calculate-button" onclick="calculateMortality()">
-            احسب النسبة
-          </button>
-
-          <div class="result" id="result"></div>
-
-          <p class="info-note">
-            المعادلة: نسبة النافق = (إجمالي النافق ÷ العدد الابتدائي) × 100.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="farm">
-      <div class="container">
-        <div class="section-heading">
-          <h2>إدارة المزارع والعنابر</h2>
-          <p>منظومة واحدة لمتابعة أكثر من مزرعة وعنبر ودورة إنتاجية.</p>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="card-icon">🏡</div>
-            <h3>إدارة المزارع</h3>
-            <p>تنظيم بيانات المزارع والدورات الإنتاجية.</p>
-            <span class="soon">قريبًا</span>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🏠</div>
-            <h3>متابعة العنابر</h3>
-            <p>متابعة كل عنبر ومقارنة أدائه بالعنابر الأخرى.</p>
-            <span class="soon">قريبًا</span>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">📈</div>
-            <h3>التقارير والتحليل</h3>
-            <p>رسوم بيانية وتقارير توضح نتائج الدورة.</p>
-            <span class="soon">قريبًا</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="library">
-      <div class="container">
-        <div class="about-box">
-          <h2>المكتبة العلمية</h2>
-          <p>
-            مكتبة متخصصة في تربية الدواجن البيضاء،
-            تضم معلومات ومراجع تعليمية عن التغذية
-            والإدارة والتحصين والصحة والأداء الإنتاجي.
-            سيتم تنظيم المحتوى ومراجعته قبل نشره.
-          </p>
-          <span class="soon">قريبًا</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <strong>قَطِيع | QATEE</strong>
-      <p>إدارة أذكى... وإنتاج أفضل</p>
-      <p>© 2026 قطيع - جميع الحقوق محفوظة</p>
-    </div>
-  </footer>
-
-  <script>
-    function calculateMortality() {
-      const initial = Number(document.getElementById("initial").value);
-      const dead = Number(document.getElementById("dead").value);
-      const result = document.getElementById("result");
-
-      result.style.display = "block";
-      result.classList.remove("error");
-
-      if (
-        !Number.isInteger(initial) ||
-        !Number.isInteger(dead) ||
-        initial <= 0 ||
-        dead < 0 ||
-        dead > initial
-      ) {
-        result.classList.add("error");
-        result.textContent =
-          "يرجى إدخال أعداد صحيحة، والتأكد أن النافق لا يتجاوز العدد الابتدائي.";
-        return;
-      }
-
-      const percentage = (dead / initial) * 100;
-      const remaining = initial - dead;
-
-      result.innerHTML =
-        "نسبة النافق: " + percentage.toFixed(2) + "%<br>" +
-        "العدد المتبقي: " + remaining.toLocaleString("en-US") + " طائر";
-    }
-  </script>
-
+function num(id){
+ const v=Number(document.getElementById(id).value);
+ return Number.isFinite(v)?v:0;
+}
+function fmt(v,d=2){
+ return Number(v).toLocaleString("en-US",{maximumFractionDigits:d});
+}
+function value(h,k){return Number(h[k])||0}
+function consumed(h){
+ return value(h,"opening")+value(h,"received")-value(h,"returned")-value(h,"closing");
+}
+function costs(h){
+ return ["chickCost","feedCost","medicineCost","energyCost","laborCost","otherCost"].reduce((s,k)=>s+value(h,k),0);
+}
+function validNonnegative(h){
+ return fields.every(k=>value(h,k)>=0);
+}
+function init(){
+ const select=document.getElementById("houseSelect");
+ names.forEach((n,i)=>{
+  const o=document.createElement("option");o.value=i;o.textContent=n;select.appendChild(o);
+ });
+ try{
+  const saved=localStorage.getItem("qatee_houses_v1");
+  if(saved){
+   const data=JSON.parse(saved);
+   if(Array.isArray(data)&&data.length===8)houses=data;
+  }
+ }catch(e){}
+ loadHouse();render();
+}
+function loadHouse(){
+ active=Number(document.getElementById("houseSelect").value)||0;
+ const h=houses[active]||{};
+ fields.forEach(k=>document.getElementById(k).value=h[k]??"");
+ document.getElementById("houseResult").style.display="none";
+}
+function saveHouse(){
+ const h={};
+ fields.forEach(k=>h[k]=num(k));
+ if(!validNonnegative(h)){
+  show("houseResult","توجد قيمة سالبة غير صحيحة.","error");return;
+ }
+ if(h.dead>h.initial){
+  show("houseResult","عدد النافق لا يمكن أن يتجاوز العدد الابتدائي.","error");return;
+ }
+ if(h.sold>h.initial-h.dead){
+  show("houseResult","عدد المباع أكبر من العدد الحي المتبقي.","error");return;
+ }
+ if(h.returned>h.opening+h.received){
+  show("houseResult","المرتجع أكبر من العلف المتاح.","error");return;
+ }
+ if(consumed(h)<0){
+  show("houseResult","رصيد آخر المدة أكبر من كمية العلف المتاحة.","error");return;
+ }
+ houses[active]=h;
+ try{localStorage.setItem("qatee_houses_v1",JSON.stringify(houses));}
+ catch(e){show("houseResult","تعذر الحفظ في المتصفح. تحقق من مساحة التخزين وإعدادات المتصفح.","error");return;}
+ show("houseResult","تم حفظ بيانات "+names[active]+" بنجاح.");
+ render();
+}
+function clearHouse(){
+ if(!confirm("هل تريد مسح بيانات هذا العنبر؟"))return;
+ houses[active]={};
+ try{localStorage.setItem("qatee_houses_v1",JSON.stringify(houses));}
+ catch(e){}
+ loadHouse();render();
+}
+function show(id,msg,error=false){
+ const el=document.getElementById(id);
+ el.style.display="block";el.classList.toggle("error",error);el.textContent=msg;
+}
+function calcMort(){
+ const a=num("cInitial"),d=num("cDead");
+ if(a<=0||d<0||d>a){show("rMort","أدخل عددًا ابتدائيًا صحيحًا، واجعل النافق بين صفر والعدد الابتدائي.",true);return;}
+ show("rMort","نسبة النافق: "+fmt(d/a*100)+"% — العدد المتبقي: "+fmt(a-d,0)+" طائر.");
+}
+function calcAvg(){
+ const s=num("sumWeight"),n=num("sampleCount"),t=num("targetWeight");
+ if(s<=0||n<=0){show("rAvg","أدخل مجموع أوزان صحيحًا وعدد عينة أكبر من صفر.",true);return;}
+ const avg=s/n;
+ let msg="متوسط وزن العينة: "+fmt(avg)+" جرام.";
+ if(t>0)msg+=" الفرق عن المستهدف: "+fmt(avg-t)+" جرام ("+fmt((avg-t)/t*100)+"%).";
+ show("rAvg",msg);
+}
+function calcFcr(){
+ const f=num("fcrFeed"),g=num("fcrGain");
+ if(f<=0||g<=0){show("rFcr","أدخل كمية علف وزيادة وزنية أكبر من صفر.",true);return;}
+ show("rFcr","معامل التحويل الغذائي: "+fmt(f/g,3));
+}
+function calcFeed(){
+ const o=num("fcOpening"),r=num("fcReceived"),back=num("fcReturned"),c=num("fcClosing");
+ const total=o+r;
+ if(total<=0||back>total||c>total-back){show("rFeed","راجع الأرصدة والوارد والمرتجع؛ لا يمكن أن يتجاوز الخارج الكمية المتاحة.",true);return;}
+ show("rFeed","إجمالي المتاح: "+fmt(total)+" كجم — الاستهلاك: "+fmt(total-back-c)+" كجم.");
+}
+function calcNeed(){
+ const b=num("needBirds"),p=num("needPerBird"),r=num("needReserve");
+ if(b<=0||p<=0||r<0||r>100){show("rNeed","أدخل عدد الطيور والاستهلاك، واجعل الاحتياطي بين صفر و100%.",true);return;}
+ const base=b*p;
+ show("rNeed","الاحتياج الأساسي: "+fmt(base)+" كجم — مع الاحتياطي: "+fmt(base*(1+r/100))+" كجم.");
+}
+function calcCost(){
+ const keys=["ccChick","ccFeed","ccMed","ccEnergy","ccLabor","ccOther"];
+ const total=keys.reduce((s,k)=>s+num(k),0);
+ const revenue=num("ccRevenue");
+ if(keys.some(k=>num(k)<0)||revenue<0){show("rCost","لا تستخدم قيمًا سالبة.",true);return;}
+ const net=revenue-total;
+ show("rCost","إجمالي التكاليف: "+fmt(total)+" جنيه — الإيرادات: "+fmt(revenue)+" جنيه — "+(net>=0?"الفائض":"العجز")+": "+fmt(Math.abs(net))+" جنيه.");
+}
+function showCalc(id,button){
+ document.querySelectorAll(".calc").forEach(x=>x.classList.add("hidden"));
+ document.getElementById("calc-"+id).classList.remove("hidden");
+ document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+ button.classList.add("active");
+}
+function render(){
+ let initial=0,dead=0,feed=0,cost=0,weightSum=0,birdsWithWeight=0;
+ houses.forEach(h=>{
+  initial+=value(h,"initial");dead+=value(h,"dead");
+  feed+=Math.max(0,consumed(h));cost+=costs(h);
+  const live=Math.max(0,value(h,"initial")-value(h,"dead"));
+  if(value(h,"weight")>0){weightSum+=value(h,"weight")*live;birdsWithWeight+=live;}
+ });
+ document.getElementById("mInitial").textContent=fmt(initial,0);
+ document.getElementById("mDead").textContent=fmt(dead,0);
+ document.getElementById("mMort").textContent=initial?fmt(dead/initial*100)+"%":"0%";
+ document.getElementById("mFeed").textContent=fmt(feed);
+ document.getElementById("mWeight").textContent=birdsWithWeight?fmt(weightSum/birdsWithWeight):"0";
+ document.getElementById("mCost").textContent=fmt(cost,0);
+ const cards=document.getElementById("houseCards");
+ cards.innerHTML="";
+ houses.forEach((h,i)=>{
+  const live=Math.max(0,value(h,"initial")-value(h,"dead"));
+  const mort=value(h,"initial")?value(h,"dead")/value(h,"initial")*100:0;
+  const el=document.createElement("div");el.className="card";
+  el.innerHTML="<h3>"+names[i]+"</h3><p>العدد الحي: <strong>"+fmt(live,0)+"</strong></p><p>النافق: "+fmt(mort)+"%</p><p>العلف المستهلك: "+fmt(Math.max(0,consumed(h)))+" كجم</p><button class='btn secondary' type='button'>فتح العنبر</button>";
+  el.querySelector("button").addEventListener("click",()=>{
+   document.getElementById("houseSelect").value=i;loadHouse();
+   document.getElementById("houses").scrollIntoView({behavior:"smooth"});
+  });
+  cards.appendChild(el);
+ });
+ const body=document.getElementById("reportBody");body.innerHTML="";
+ houses.forEach((h,i)=>{
+  const live=Math.max(0,value(h,"initial")-value(h,"dead"));
+  const mort=value(h,"initial")?value(h,"dead")/value(h,"initial")*100:0;
+  const f=consumed(h),g=value(h,"gain");
+  const tr=document.createElement("tr");
+  [names[i],fmt(value(h,"initial"),0),fmt(value(h,"dead"),0),fmt(mort)+"%",fmt(value(h,"weight"))+" جم",fmt(Math.max(0,f)),g>0?fmt(f/g,3):"—",fmt(costs(h),0)].forEach(x=>{
+   const td=document.createElement("td");td.textContent=x;tr.appendChild(td);
+  });
+  body.appendChild(tr);
+ });
+ const max=Math.max(1,...houses.map(h=>Math.max(0,consumed(h))));
+ const bars=document.getElementById("feedBars");bars.innerHTML="";
+ houses.forEach((h,i)=>{
+  const f=Math.max(0,consumed(h));
+  const row=document.createElement("div");row.className="bar-row";
+  row.innerHTML="<div class='bar-label'><span>"+names[i]+"</span><strong>"+fmt(f)+" كجم</strong></div><div class='bar'><span style='width:"+(f/max*100)+"%'></span></div>";
+  bars.appendChild(row);
+ });
+}
+function exportCSV(){
+ const rows=[["العنبر","العدد الابتدائي","النافق","نسبة النافق","متوسط الوزن جرام","العلف المستهلك كجم","الزيادة الوزنية كجم","معامل التحويل","التكاليف جنيه","الإيرادات جنيه"]];
+ houses.forEach((h,i)=>{
+  const f=consumed(h),g=value(h,"gain");
+  rows.push([names[i],value(h,"initial"),value(h,"dead"),value(h,"initial")?value(h,"dead")/value(h,"initial")*100:0,value(h,"weight"),Math.max(0,f),g,g>0?f/g:"",costs(h),value(h,"revenue")]);
+ });
+ const csv="\uFEFF"+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\r\n");
+ const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");a.href=url;a.download="qatee-report.csv";a.click();
+ URL.revokeObjectURL(url);
+}
+init();
+</script>
 </body>
 </html>
